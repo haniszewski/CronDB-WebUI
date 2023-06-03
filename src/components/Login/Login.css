@@ -125,7 +125,6 @@ video{
 }
 
 .error-container{
-    display: none;
     background-color: rgba(255, 0, 0, 0.25);
     padding-left: 10px;
     padding-right: 10px;
