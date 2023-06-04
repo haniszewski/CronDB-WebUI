@@ -1,10 +1,20 @@
 import React from 'react'
-import { getToken } from '../../services/auth/authHelper'
+import { getAllUsers } from '../../services/api/userApi';
 
 const Databases = () => {
+  
+  const getUsers = async () => {
+    const data = await getAllUsers();
+    console.log(data);
+  }
+
   return (
     <div>
-      {getToken()}
+      <button
+        onClick={getUsers}
+      >
+        Click me!
+      </button>
     </div>
   )
 }
