@@ -37,7 +37,7 @@ video{
 
 .login-box {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     width: 25rem;
     padding: 10px;
