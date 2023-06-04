@@ -7,5 +7,5 @@ export const getToken = () => {
 };
 
 export const isAuthenticated = () => {
-
+    return getToken() != null;
 }

@@ -1,13 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PrivateRoutes from './routes/PrivateRoutes';
 import Login from './components/Login/Login';
-import Databases from './containers/Databases';
+import Databases from './components/Databases/Databases'; 
 
 const App = () => {
   return (
     <Routes>
-        <Route exact path='/auth' element={<Login/>} />
-        <Route path='/databases' element={<Databases/>} />
+      <Route element={<PrivateRoutes />}>
+        <Route element={<Databases/>} path='/databases'/>
+      </Route>
+      <Route element={<Login />} path='/login'/>
     </Routes>
   )
 }
