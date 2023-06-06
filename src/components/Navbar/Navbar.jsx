@@ -1,28 +1,55 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo2.png';
+import { ImCross } from "react-icons/im";
+import { GiHamburgerMenu } from "react-icons/gi";
+import './Navbar.css';
 
-const Navbar = () => {
+
+const Navbar = ({clicked, isClicked}) => {
+    const handleClicked = () => {
+        isClicked(!clicked);
+        console.log("clicked")
+      };
+
   return (
-    <nav>
-        <ul>
-            <li>
-                <Link to="/databases">Databases</Link>
-            </li>
-            <li>
-                <Link to="/metrics">Metrics</Link>
-            </li>
-            <li>
-                <Link to="/backups">Backups</Link>
-            </li>
-            <li>
-                <Link to="/schedules">Schedules</Link>
-            </li>
-            <li>
-                <Link to="/panel">Panel</Link>
-            </li>
-            
-        </ul>
-        </nav>
+        <div className="Nav">
+            <nav className="NavbarWrapper">
+                <div>
+                {!clicked ?
+                    (
+                        <GiHamburgerMenu onClick={handleClicked} className="Icon" />
+                    ) : 
+                    (
+                        <ImCross onClick={handleClicked} className="Icon" />
+                    )
+                }
+                </div>
+                <div className="NavLogo">
+                <Link to="/databases">
+                    <img src={logo} width={150}/>
+                </Link>
+                </div>
+                <div className="NavElements">
+                <NavLink className="Link" to="/">
+                    Home
+                </NavLink>
+                </div>
+                <div className="NavElements">
+                <NavLink className="Link" to="/about-us">
+                    About Us
+                </NavLink>
+                </div>
+                <div className="NavElements">
+                <NavLink className="Link" to="/contact-us">
+                    Contact Us
+                </NavLink>
+                </div>
+                <div className='NavProfile'>
+
+                </div>
+            </nav>
+        </div>
   );
 };
 

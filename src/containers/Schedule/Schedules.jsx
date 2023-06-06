@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Monitor = () => {
+const Schedules = () => {
   return (
     <div>
-      Monitor
+      Schedule
     </div>
   )
 }
 
-export default Monitor
+export default Schedules

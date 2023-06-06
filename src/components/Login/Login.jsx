@@ -25,7 +25,7 @@ const Login = () => {
             navigate('/databases');
         } else {
             setError(true);
-            setErrorMsg(data.message);
+            setErrorMsg('Invalid login or password!');
         }
     }
 
