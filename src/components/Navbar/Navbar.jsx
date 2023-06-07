@@ -4,12 +4,15 @@ import logo from '../../assets/images/logo2.png';
 import { ImCross } from "react-icons/im";
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsFillPersonFill } from 'react-icons/bs';
+import { AiFillEdit } from 'react-icons/ai';
+import { AiOutlineLogout } from 'react-icons/ai';
 import './Navbar.css';
 
 
 const Navbar = () => {
 
     const [clicked, setClicked] = useState(false);
+    const [clickedWrap, setClickedWrap] = useState(false);
 
     const handleClick = () => {
         setClicked(!clicked);
@@ -17,6 +20,16 @@ const Navbar = () => {
 
     const handleCloseSidebar = () => {
         setClicked(false);
+    }
+
+    const handleClickWrap = () => {
+        setClickedWrap(!clickedWrap);
+        handleCloseSidebar();
+    }
+
+    const handleCloseWrap = () => {
+        setClickedWrap(false);
+        handleCloseSidebar();
     }
 
     function CustomLink({ to, children, ...props }) {
@@ -78,9 +91,30 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='navbar-profile'>
-                    <Link to="/admin">
-                        <BsFillPersonFill className='navbar-icon-plus' onClick={handleCloseSidebar}/>
-                    </Link>
+                    <BsFillPersonFill className='navbar-icon-plus' onClick={handleClickWrap}/>
+                </div>
+                <div className={clickedWrap ? 'navbar-menu-wrap open-menu' : 'navbar-menu-wrap'}>
+                    <div className='navbar-menu'>
+                        <div className='user-info'>
+                            <h3>Admin</h3>
+                        </div>
+                        <hr/>
+                        <Link to="/profile" className='navbar-wrap-link'>
+                            <BsFillPersonFill onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                            <p>Your profile</p>
+                            <span>{'>'}</span>
+                        </Link>
+                        <Link to="/admin" className='navbar-wrap-link'>
+                            <AiFillEdit onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                            <p>Admin panel</p>
+                            <span>{'>'}</span>
+                        </Link>
+                        <Link to="/login" className='navbar-wrap-link'>
+                            <AiOutlineLogout onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                            <p>Logout</p>
+                            <span>{'>'}</span>
+                        </Link>
+                    </div>
                 </div>
             </nav>
         </>

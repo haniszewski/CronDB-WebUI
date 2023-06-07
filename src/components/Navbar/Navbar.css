@@ -69,6 +69,81 @@
     margin-bottom: 1.875rem;
 }
 
+.navbar-menu-wrap{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.navbar-menu-wrap.open-menu{
+    max-height: 400px;
+}
+
+.navbar-menu{
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: -0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.navbar-menu hr{
+    height: 2px;
+    width: 100%;
+    border: none;
+    background: #59b414;
+    margin: 15px 0 10px;
+}
+
+.navbar-wrap-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+    margin: 12px 0;
+}
+
+.navbar-wrap-link p {
+    width: 100%;
+}
+
+.navbar-wrap-link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.navbar-wrap-link:hover p {
+    font-weight: 600;
+    color:#59b414;
+}
+
+.navbar-wrap-link:hover span {
+    transform: translateX(5px);
+    color:#59b414;
+}
+
+.navbar-wrap-icon{
+    font-size: 45px;
+    background-color: rgba(220, 220, 220, 0.366);
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3{
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
+
 @media screen and (max-width: 59.5rem) {
     .navbar-links{
         position: fixed;
@@ -76,8 +151,8 @@
         align-items: flex-start;
         justify-content: flex-start;
         top: 0px;
-        left: -34.375rem;
-        width: 34.375rem;
+        left: -25rem;
+        width: 25rem;
         height: 100vh;
         background-color: #fff;
         box-shadow: 0 2.5rem 3.75rem rgba(0, 0, 0, 0.1);
@@ -98,7 +173,7 @@
     }
 
     .sidebar-icon {
-        margin-left: 21rem;
+        margin-left: 12rem;
         transition: 0.3s ease-in-out;
     }
 
@@ -109,7 +184,7 @@
     }
 }
 
-@media screen and (max-width: 41.563rem) {
+/* @media screen and (max-width: 41.563rem) {
     .navbar-links{
         left: -25rem;
         width: 25rem;
@@ -122,4 +197,4 @@
     .sidebar-icon {
         margin-left: 12rem;
     }
-}
+} */
