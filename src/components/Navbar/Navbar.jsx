@@ -24,12 +24,10 @@ const Navbar = () => {
 
     const handleClickWrap = () => {
         setClickedWrap(!clickedWrap);
-        handleCloseSidebar();
     }
 
     const handleCloseWrap = () => {
         setClickedWrap(false);
-        handleCloseSidebar();
     }
 
     function CustomLink({ to, children, ...props }) {
@@ -39,7 +37,7 @@ const Navbar = () => {
         return (
             <NavLink className={isActive ? "navbar-link active" : "navbar-link"}
             to={to}
-            onClick={handleCloseSidebar}
+            onClick={() => {handleCloseSidebar(); handleCloseWrap()}}
             {...props}
             >
                 {children}
@@ -52,7 +50,7 @@ const Navbar = () => {
         <>
             <nav className="navbar">
                 <div className='navbar-mobile'>
-                    <GiHamburgerMenu className='navbar-icon-plus' onClick={handleClick}/>
+                    <GiHamburgerMenu className='navbar-icon-plus' onClick={() => {handleClick(); handleCloseWrap();}}/>
                 </div>
                 <div className='navbar-help'>
                 </div>
@@ -65,7 +63,7 @@ const Navbar = () => {
                     <ul className={clicked ? "navbar-links active" : "navbar-links"}>                         
                         <li className='sidebar-li'>
                             <div className='sidebar-logo'>
-                                <Link to="/databases" onClick={handleCloseSidebar}>
+                                <Link to="/databases" onClick={() => { handleCloseSidebar(); handleCloseWrap()}}>
                                         <img src={logo} width={150} alt="logo"/>
                                 </Link>
                             </div>
@@ -91,7 +89,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='navbar-profile'>
-                    <BsFillPersonFill className='navbar-icon-plus' onClick={handleClickWrap}/>
+                    <BsFillPersonFill className='navbar-icon-plus' onClick={() => {handleClickWrap(); handleCloseSidebar()}}/>
                 </div>
                 <div className={clickedWrap ? 'navbar-menu-wrap open-menu' : 'navbar-menu-wrap'}>
                     <div className='navbar-menu'>
@@ -99,18 +97,18 @@ const Navbar = () => {
                             <h3>Admin</h3>
                         </div>
                         <hr/>
-                        <Link to="/profile" className='navbar-wrap-link'>
-                            <BsFillPersonFill onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                        <Link to="/profile" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
+                            <BsFillPersonFill className='navbar-wrap-icon'/>
                             <p>Your profile</p>
                             <span>{'>'}</span>
                         </Link>
-                        <Link to="/admin" className='navbar-wrap-link'>
-                            <AiFillEdit onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                        <Link to="/admin" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
+                            <AiFillEdit className='navbar-wrap-icon'/>
                             <p>Admin panel</p>
                             <span>{'>'}</span>
                         </Link>
-                        <Link to="/login" className='navbar-wrap-link'>
-                            <AiOutlineLogout onClick={handleCloseSidebar} className='navbar-wrap-icon'/>
+                        <Link to="/login" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
+                            <AiOutlineLogout className='navbar-wrap-icon'/>
                             <p>Logout</p>
                             <span>{'>'}</span>
                         </Link>
