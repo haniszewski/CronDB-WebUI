@@ -56,7 +56,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-logo">
                     <Link to="/databases">
-                        <img src={logo} width={150} alt="logo"/>
+                        <img src={logo} width={150} alt="logo" onClick={() => {handleCloseSidebar(); handleCloseWrap();}}/>
                     </Link>
                 </div>
                 <div>
