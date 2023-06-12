@@ -9,7 +9,6 @@ const AdminPanel = () => {
     <>
       <Routes>
           <Route path='/' element={ <MainUsers/> }/>
-          <Route path='/create' element={ <EditUser/> }/>
       </Routes>
     </>
   )

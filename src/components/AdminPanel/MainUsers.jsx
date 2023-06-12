@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import ReactPaginate from 'react-paginate';
+import CreateUser from './CreateUser';
+import EditUser from './EditUser';
 
 const MainUsers = () => {
 
@@ -22,131 +25,308 @@ const MainUsers = () => {
             isActive: 1
         },
         {
-            id: 1,
+            id: 4,
+            username: 'Some',
+            email: 'some@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 5,
+            username: 'Jack',
+            email: 'jack@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 6,
+            username: 'Johny',
+            email: 'johny@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 7,
+            username: 'Rodrigo',
+            email: 'rodrigo@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 8,
+            username: 'Anon',
+            email: 'anon@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 9,
+            username: 'John',
+            email: 'john@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 10,
+            username: 'Tony',
+            email: 'tony@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 11,
             username: 'Admin',
             email: 'tonysorokaol@gmail.com',
             isActive: 1,
         },
         {
-            id: 1,
+            id: 12,
+            username: 'User',
+            email: 'user@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 13,
+            username: 'Profile',
+            email: 'profile@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 14,
+            username: 'Some',
+            email: 'some@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 15,
+            username: 'Jack',
+            email: 'jack@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 16,
+            username: 'Johny',
+            email: 'johny@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 17,
+            username: 'Rodrigo',
+            email: 'rodrigo@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 18,
+            username: 'Anon',
+            email: 'anon@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 19,
+            username: 'John',
+            email: 'john@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 20,
+            username: 'Tony',
+            email: 'tony@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 21,
             username: 'Admin',
             email: 'tonysorokaol@gmail.com',
             isActive: 1,
         },
         {
-            id: 1,
+            id: 22,
+            username: 'User',
+            email: 'user@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 23,
+            username: 'Profile',
+            email: 'profile@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 24,
+            username: 'Some',
+            email: 'some@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 25,
+            username: 'Jack',
+            email: 'jack@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 26,
+            username: 'Johny',
+            email: 'johny@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 27,
+            username: 'Rodrigo',
+            email: 'rodrigo@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 28,
+            username: 'Anon',
+            email: 'anon@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 29,
+            username: 'John',
+            email: 'john@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 30,
+            username: 'Tony',
+            email: 'tony@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 31,
             username: 'Admin',
             email: 'tonysorokaol@gmail.com',
             isActive: 1,
         },
         {
-            id: 1,
+            id: 32,
+            username: 'User',
+            email: 'user@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 33,
+            username: 'Profile',
+            email: 'profile@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 34,
+            username: 'Some',
+            email: 'some@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 35,
+            username: 'Jack',
+            email: 'jack@gmail.com',
+            isActive: 0
+        },
+        {
+            id: 36,
+            username: 'Johny',
+            email: 'johny@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 37,
+            username: 'Rodrigo',
+            email: 'rodrigo@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 38,
+            username: 'Anon',
+            email: 'anon@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 39,
+            username: 'John',
+            email: 'john@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 40,
+            username: 'Tony',
+            email: 'tony@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 41,
             username: 'Admin',
             email: 'tonysorokaol@gmail.com',
             isActive: 1,
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
+            id: 42,
+            username: 'User',
+            email: 'user@gmail.com',
             isActive: 1,
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
-            isActive: 1,
+            id: 43,
+            username: 'Profile',
+            email: 'profile@gmail.com',
+            isActive: 1
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
-            isActive: 1,
+            id: 44,
+            username: 'Some',
+            email: 'some@gmail.com',
+            isActive: 0
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
-            isActive: 1,
+            id: 45,
+            username: 'Jack',
+            email: 'jack@gmail.com',
+            isActive: 0
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
-            isActive: 1,
+            id: 46,
+            username: 'Johny',
+            email: 'johny@gmail.com',
+            isActive: 1
         },
         {
-            id: 1,
-            username: 'Admin',
-            email: 'tonysorokaol@gmail.com',
-            isActive: 1,
+            id: 47,
+            username: 'Rodrigo',
+            email: 'rodrigo@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 48,
+            username: 'Anon',
+            email: 'anon@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 49,
+            username: 'John',
+            email: 'john@gmail.com',
+            isActive: 1
+        },
+        {
+            id: 50,
+            username: 'Tony',
+            email: 'tony@gmail.com',
+            isActive: 1
         },
     ];
 
+    const [edit, setEdit] = useState(false);
+
     const [search, setSearch] = useState('');
 
-    const [login, setLogin] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [phone, setPhone] = useState('');
-    const [error, setError] = useState(false);
-    const [message, setMessage] = useState(false);
-    const [messageText, setMessageText] = useState('');
+    const [currentPage, setCurrentPage] = useState(0);
+    const [data, setData] = useState(list);
 
-    const addUser = () => {
+    const PER_PAGE = 8;
+    const offset = currentPage * PER_PAGE;
+    const currentPageData = data.slice(offset, offset + PER_PAGE);
+    const pageCount = Math.ceil(data.length / PER_PAGE);
 
-
-        if(false){
-        validatePassword();
-
-        setMessage(true);
-        setMessageText('New user added successfully!')
-        }
-    }
-
-    const validatePassword = () => {
-        if(password === confirmPassword){
-            setMessage(false);
-            setError(false);
-        } else {
-            setMessage(true);
-            setError(true);
-            setMessageText('Passwords do not match!')
-        }
+    const handlePageClick = ({selected: selectedPage}) => {
+        setCurrentPage(selectedPage);
     }
 
     return (
         <div className='container-admin'>
-            <div className='form-block'>
-                <h2>Create New User:</h2>
-                <form>
-
-                    { message ? (
-                        <div className={ error ? 'error-container' : 'message-conteiner'}>
-                            <p>{message}</p>
-                        </div>
-                    ): (<div className='about-conteiner'>
-                        <p>Here you can add new user!</p>
-                    </div>)}
-
-                    <input className='input-user' type="text" placeholder='Username' id="username" name="username" onChange={(e) => {setLogin(e.target.value)}} required/>
-
-                    <input className='input-user' type="password" placeholder='Password' id="password" name="password" onChange={(e) => {setPassword(e.target.value)}} required/>
-
-                    <input className='input-user' type="password" placeholder='Confirm Password' id="confirm" name="confirm" onChange={(e) => {setConfirmPassword(e.target.value)}} required/>
-
-                    <input className='input-user' type="email" placeholder='Email' id="email" name="email" onChange={(e) => {setEmail(e.target.value)}} required/>
-
-                    <input className='input-user' type="tel" placeholder='Phone Number' id="phoneNumber" name="phone" onChange={(e) => {setPhone(e.target.value)}} required/>
-                    
-                    <input
-                        type='submit'
-                        onClick={addUser}
-                        className='button-create'
-                        value='Create'/>
-                </form>
-            </div>
+            {edit ? <EditUser/> : <CreateUser/>}
             <div className='table-block'>
                 <h2>List of all users:</h2>    
                 <form>
@@ -175,10 +355,10 @@ const MainUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            list.filter((item) => {
+                            data.filter((item) => {
                                 return search.toLowerCase() === '' ? item :
                                     (item.username.toLowerCase().includes(search) || item.email.toLowerCase().includes(search));
-                            }).map((current) => { 
+                            }).slice(offset, offset + PER_PAGE).map((current) => {
                                 return (
                                     <tr key={current.id}>
                                         <td>{current.username}</td>
@@ -200,6 +380,20 @@ const MainUsers = () => {
                         }
                     </tbody>
                 </table>
+                <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    breakLabel={".."}
+                    pageCount={pageCount}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"pagination-link"}
+                    nextLinkClassName={"pagination-link"}
+                    pageClassName={"pagination-link"}
+                    disabledClassName={"pagination-link-disasbled"}
+                    activeClassName={"pagination-link-active"}/>
             </div>
         </div>
     )
