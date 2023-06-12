@@ -20,7 +20,67 @@ const MainUsers = () => {
             username: 'Profile',
             email: 'profile@gmail.com',
             isActive: 1
-        }
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
+        {
+            id: 1,
+            username: 'Admin',
+            email: 'tonysorokaol@gmail.com',
+            isActive: 1,
+        },
     ];
 
     const [search, setSearch] = useState('');
@@ -99,18 +159,18 @@ const MainUsers = () => {
                 <table>
                     <thead>
                         <tr>
-                            <td>
+                            <th>
                                 Username
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Email
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 Is Active?
-                            </td>
-                            <td>
+                            </th>
+                            <th>
 
-                            </td>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,10 +183,16 @@ const MainUsers = () => {
                                     <tr key={current.id}>
                                         <td>{current.username}</td>
                                         <td>{current.email}</td>
-                                        <td>{current.isActive ? 'Active' : 'Non Active'}</td>
+                                        <td className={current.isActive ? 'table-active' : 'table-unactive'}>{current.isActive ? 'Active' : 'Non Active'}</td>
                                         <td>
-                                            <button>Edit</button>
-                                            <button>Delete</button>
+                                            <button
+                                                className='table-user-button'
+                                                >Edit
+                                            </button>
+                                            <button
+                                                className='table-user-button'
+                                                >Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 )

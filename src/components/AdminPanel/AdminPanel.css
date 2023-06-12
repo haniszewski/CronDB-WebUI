@@ -12,10 +12,12 @@ body {
 }
 
 .form-block {
+  max-height: 575px;
+  min-width: 286px;
   text-align: center;
   background-color: #fff;
   width: 30%;
-  height: 80vh;
+  /* height: 80vh; */
   margin-right: 25px;
   padding: 20px;
   border-radius: 5px;
@@ -120,10 +122,12 @@ body {
 }
 
 .table-block {
+  min-height: 575px;
+  min-width: 582px;
   background-color: #fff;
   text-align: center;
   padding: 20px;
-  height: 80vh;
+  /* height: 80vh; */
   border: 2px solid #000;
   border-radius: 5px;
   width: 80%;
@@ -139,36 +143,73 @@ body {
   justify-content: space-between;
 }
 
-table {
+.table-block table {
   width: 100%;
+  border-radius: 5px 5px 0 0;
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 0.9em;
-  font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-table th {
+.table-block table thead tr{
   background-color: #000;
-  color: #fff;
+  color: #ffffff;
+}
+
+.table-block table th,
+.table-block table td {
+  padding: 8px 8px;
+}
+
+.table-block table tbody tr {
+  border-bottom: 2px solid #dddddd;
+}
+
+.table-block table tbody tr:hover {
+  background-color: #f3f3f3;
+}
+
+.table-block table tbody tr:last-of-type {
+  border-bottom: 2px solid #59b414;
+}
+
+.table-unactive{
+  color: red;
   font-weight: bold;
-  padding: 10px;
-  text-align: left;
-  border-bottom: 2px solid #ccc;
 }
 
-table td {
-  background-color: #fff;
-  color: #000;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+.table-active{
+  color:#59b414;
+  font-weight: bold;
 }
 
-table tr:nth-child(even) td {
-  background-color: #f9f9f9;
+.table-user-button {
+  appearance: none;
+  background-color: #000000;
+  border: 0.125rem solid #1A1A1A;
+  border-radius: 1rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem;
+  width: 80px;
+  margin-left: 10px;
+  text-align: center;
+  text-decoration: none;
 }
 
-table tr:hover td {
-  background-color: #f5f5f5;
+.table-user-button:disabled {
+  pointer-events: none;
+}
+
+.table-user-button:hover {
+  color: #000000;
+  background-color: #59b414;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.5rem 1rem;
+}
+
+.table-user-button:active {
+  box-shadow: none;
+  transform: translateY(0.125rem);
 }
