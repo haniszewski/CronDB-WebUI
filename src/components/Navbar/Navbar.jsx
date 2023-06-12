@@ -97,11 +97,6 @@ const Navbar = () => {
                             <h3>Admin</h3>
                         </div>
                         <hr/>
-                        <Link to="/profile" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
-                            <BsFillPersonFill className='navbar-wrap-icon'/>
-                            <p>Your profile</p>
-                            <span>{'>'}</span>
-                        </Link>
                         <Link to="/admin" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
                             <AiFillEdit className='navbar-wrap-icon'/>
                             <p>Admin panel</p>

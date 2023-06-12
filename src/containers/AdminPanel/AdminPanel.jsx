@@ -1,17 +1,17 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import ListUsers from '../../components/AdminPanel/ListUsers'
-import CreateUser from '../../components/AdminPanel/CreateUser'
+import MainUsers from '../../components/AdminPanel/MainUsers'
+import EditUser from '../../components/AdminPanel/EditUser'
 import '../../components/AdminPanel/AdminPanel.css';
 
 const AdminPanel = () => {
   return (
-    <div>
+    <>
       <Routes>
-          <Route path='/' element={ <ListUsers/> }/>
-          <Route path='/create' element={ <CreateUser/> }/>
+          <Route path='/' element={ <MainUsers/> }/>
+          <Route path='/create' element={ <EditUser/> }/>
       </Routes>
-    </div>
+    </>
   )
 }
 
