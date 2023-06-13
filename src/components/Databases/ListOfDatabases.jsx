@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate';
+import { useNavigate } from 'react-router-dom';
 
 const ListOfDatabases = () => {
 
@@ -7,11 +8,13 @@ const ListOfDatabases = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [search, setSearch] = useState('');
   
+    const navigate = useNavigate();
+
     const PER_PAGE = 10;
     const RANGE_PAGE = 2;
     const MARG_PAGE = 2;
     const offset = currentPage * PER_PAGE;
-  
+
     const getPageCount = () => {
         if(search === '') {
             return Math.ceil(data.length / PER_PAGE);
@@ -26,9 +29,12 @@ const ListOfDatabases = () => {
         setCurrentPage(selected);
     }
 
+    const testConnection = ({database}) => {
+        return true;
+    }
   return (
-    <div className='table-block'>
-      <h2>List of all users:</h2>    
+    <div className='table-container'>
+      <h2>Databases PostgresQL:</h2>    
       <form>
           <div className='create-search-div'>
               <input
@@ -36,49 +42,57 @@ const ListOfDatabases = () => {
                   placeholder = 'Search Filter'
                   onChange={(e) => setSearch(e.target.value.toLowerCase())}
                   />
+                <button 
+                    type='button'
+                    className='add-button'
+                    onClick={() => navigate('/databases/add')}> + </button>
           </div>
       </form>
       <div className='responsive-table'>
       <table>
           <thead>
               <tr>
-                  <th>
-                      Username
-                  </th>
-                  <th>
-                      Email
-                  </th>
-                  <th>
-                      Is Active?
-                  </th>
-                  <th>
+                    <th>
+                        Host
+                    </th>
+                    <th>
+                        Port
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Dialect
+                    </th>
+                    <th>
+                        Connection  
+                    </th>
+                    <th>
 
-                  </th>
+                    </th>
               </tr>
           </thead>
           <tbody>
               {
                   data.filter((item) => {
                       return search.toLowerCase() === '' ? item :
-                          (item.username.toLowerCase().includes(search) || item.email.toLowerCase().includes(search));
+                          (item.dbPort.toLowerCase().includes(search)
+                           || item.dbHost.toLowerCase().includes(search)
+                           || item.dbName.toLowerCase().includes(search));
                   }).slice(offset, offset + PER_PAGE).map((current) => {
                       return (
                           <tr key={current.id}>
-                              <td>{current.login}</td>
-                              <td>{current.email ? current.email : 'None'}</td>
-                              <td className={current.accountActive ? 'table-active' : 'table-unactive'}>{current.accountActive ? 'Active' : 'Non Active'}</td>
+                              <td>{current.dbHost}</td>
+                              <td>{current.dbPort}</td>
+                              <td>{current.dbName}</td>
+                              <td>{current.dialect}</td>
+                              <td className={testConnection(current) ? 'table-active' : 'table-unactive'}>{testConnection() ? 'Connect' : 'Diconnect'}</td>
                               <td>
                                   <button
                                       type='button'
                                       className='table-user-button'
-                                      // onClick={() => {editUser(current); setEdit(true)}}
-                                      >Edit
-                                  </button>
-                                  <button
-                                      type='button'
-                                      className='table-user-button'
-                                      // onClick={() => deleteUser(current.id)}
-                                      >Delete
+                                    //   onClick={() => {editUser(current); setEdit(true)}}
+                                      >Add Backup
                                   </button>
                               </td>
                           </tr>

@@ -1,0 +1,97 @@
+
+.table-container {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    min-height: 700px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    width: auto;
+  }
+  
+  .table-container h2 {
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .search-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .table-container table thead tr{
+    background-color: #000;
+    color: #ffffff;
+  }
+  
+  .table-container table th,
+  .table-container table td {
+    padding: 8px 8px;
+  }
+  
+  .table-container table tbody tr {
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  .table-container table tbody tr:hover {
+    background-color: #f3f3f3;
+  }
+  
+  .table-container table tbody tr:last-of-type {
+    border-bottom: 2px solid #59b414;
+  }
+
+  .input-user{
+    width: 95%;
+    padding: 0.625rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    border: 0.063rem solid #000;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0.25rem;
+    outline: none;
+  }
+
+  .add-button {
+    appearance: none;
+    outline: none;
+    background-color: #000000;
+    border: 0.1rem solid #1A1A1A;
+    border-radius: 0.25rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.625rem;
+    width: 80px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .add-button:disabled {
+    pointer-events: none;
+  }
+  
+  .add-button:hover {
+    color: #000000;
+    background-color: #59b414;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 0.5rem 1rem;
+  }
+  
+  .add-button:active {
+    box-shadow: none;
+    transform: translateY(0.125rem);
+  }
