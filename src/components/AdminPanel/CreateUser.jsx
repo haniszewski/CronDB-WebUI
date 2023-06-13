@@ -45,8 +45,6 @@ const CreateUser = () => {
                         <p>Here you can add new user!</p>
                     </div>)}
                     
-                    <br/>
-                    
                     <input className='input-user' type="text" placeholder='Username' id="username" name="username" onChange={(e) => {setLogin(e.target.value)}} required/>
 
                     <input className='input-user' type="password" placeholder='Password' id="password" name="password" onChange={(e) => {setPassword(e.target.value)}} required/>

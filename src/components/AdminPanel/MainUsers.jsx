@@ -309,7 +309,7 @@ const MainUsers = () => {
     ];
 
     const [edit, setEdit] = useState(false);
-    const [editID, setEditID] = useState(0);
+    const [user, setUser] = useState(null);
 
     const [search, setSearch] = useState('');
 
@@ -335,21 +335,34 @@ const MainUsers = () => {
         setCurrentPage(selected);
     }
 
+    const editUser = (current) => {
+            setUser(current);
+    }
+    
     const deleteUser = (id) => {
         console.log('deleted: ' + id);
     }
 
     return (
         <div className='container-admin'>
-            {edit ? <EditUser/> : <CreateUser/>}
+            {edit ? (user && <EditUser user={user}/>) : <CreateUser/>}
             <div className='table-block'>
                 <h2>List of all users:</h2>    
                 <form>
-                    <input
-                        className='input-user'
-                        placeholder = 'Search Filter'
-                        onChange={(e) => setSearch(e.target.value.toLowerCase())}
-                        />
+                    <div className='create-search-div'>
+                        <input
+                            className='input-user search'
+                            placeholder = 'Search Filter'
+                            onChange={(e) => setSearch(e.target.value.toLowerCase())}
+                            />
+                        {edit ? 
+                        (<button
+                            type='button' 
+                            className='table-user-button margin'
+                            onClick={() => setEdit(false)}
+                            >Create New</button>) : null
+                        }
+                    </div>
                 </form>
                 <div className='responsive-table'>
                 <table>
@@ -382,8 +395,9 @@ const MainUsers = () => {
                                         <td className={current.isActive ? 'table-active' : 'table-unactive'}>{current.isActive ? 'Active' : 'Non Active'}</td>
                                         <td>
                                             <button
-                                                type=''
+                                                type='button'
                                                 className='table-user-button'
+                                                onClick={() => {editUser(current); setEdit(true)}}
                                                 >Edit
                                             </button>
                                             <button

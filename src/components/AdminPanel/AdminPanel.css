@@ -43,6 +43,11 @@ body {
   outline: none;
 }
 
+.input-user.search{
+  transition: 0.3s ease-in-out;
+  width:100%;
+}
+
 .input-user:focus{
   border-color: #59b414;
   color:#59b414;
@@ -193,6 +198,10 @@ body {
   text-decoration: none;
 }
 
+.table-user-button.margin {
+  margin-bottom:22px;
+}
+
 .table-user-button:disabled {
   pointer-events: none;
 }
@@ -250,6 +259,11 @@ body {
   cursor: not-allowed;
   background-color: #cacaca;
   color: #000;
+}
+
+.create-search-div{
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 59.5rem) {
