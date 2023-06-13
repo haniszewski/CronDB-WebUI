@@ -217,3 +217,15 @@
     box-shadow: none;
     transform: translateY(0.125rem);
   }
+
+  @media screen and (max-width: 59.5rem) {
+    .form-creation{
+      width: auto;
+      margin-right: 12%;
+      margin-left: 12%;
+    }
+  
+    .responsive-table{
+      overflow-x:auto;
+    }
+  }
