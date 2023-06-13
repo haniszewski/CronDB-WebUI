@@ -4,26 +4,67 @@ const AddDatabase = () => {
   const [error, setError] = useState(false);
   const [errorMsg,setErrorMsg] = useState('');
 
+  const [host, setHost] = useState('');
+  const [port, setPort] = useState(0);
+  const [pass, setPass] = useState('');
+  const [name, setName] = useState('');
+  const [version, setVersion] = useState(0.00);
+
   return ( 
       <div>
-                <div className="login-box">
-                    <form>
-                        <div className="user-box">
-                            <label className='label-input' htmlFor='username'>Username</label>
-                            <input
-                                id='username'
-                                type="text"
-                                // onChange={(e) => {setUsername(e.target.value)}}
-                                required=""/>
+                <div className="form-creation">
+                    <form autoComplete='off'>
+                      <h2>Adding Postgres Database</h2>
+                      { error ? (
+                        <div className='error-container'>
+                            <p>{errorMsg}</p>
                         </div>
-                        <div className="user-box">
-                            <label className='label-input' htmlFor='password'>Password</label>
-                            <input 
-                                id='password'
-                                type="password"
-                                // onChange={(e) => setPassword(e.target.value)}
-                                required/>
-                        </div>
+                    ): (<div className='about-conteiner'>
+                        <p>Here you can add new database!</p>
+                    </div>)}
+                      <label className='label-input' htmlFor='dbHost'>Host</label>
+                      <input
+                          id='dbHost'
+                          type="text"
+                          className='input-user'
+                          onChange={(e) => {setHost(e.target.value)}}
+                          required={true}/>
+
+                      <label className='label-input' htmlFor='dbPort'>Port</label>
+                      <input
+                          id='dbPort'
+                          autoComplete="off"
+                          type="number"
+                          className='input-user'
+                          onChange={(e) => {setPort(e.target.value)}}
+                          required={true}/>
+
+                      <label className='label-input' htmlFor='dbPass'>Password</label>
+                      <input
+                          id='dbPass'
+                          autoComplete="off"
+                          type="password"
+                          className='input-user'
+                          onChange={(e) => {setPass(e.target.value)}}
+                          required={true}/>
+
+                      <label className='label-input' htmlFor='dbName'>Name</label>
+                      <input
+                          id='dbName'
+                          type="text"
+                          className='input-user'
+                          onChange={(e) => {setName(e.target.value)}}
+                          required={true}/>
+
+                      <label className='label-input' htmlFor='pgVersion'>Version</label>
+                      <input 
+                          id='pgVersion'
+                          type="number"
+                          step="0.01"
+                          className='input-user'
+                          onChange={(e) => setVersion(e.target.value)}
+                          required={true}/>
+
                         { error && (
                             <div className='error-container'>
                                 <p>Sign-in failed!</p>
@@ -33,9 +74,9 @@ const AddDatabase = () => {
                         <button
                             type='button'
                             // onClick={checkUser}
-                            className='button-sign-in'
+                            className='button-create'
                         >
-                            Create Database
+                            Add
                         </button>
                     </form>
                 </div>
