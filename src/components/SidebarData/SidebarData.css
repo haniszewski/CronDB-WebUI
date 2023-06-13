@@ -1,0 +1,42 @@
+.links-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.link-sidebar{
+    text-decoration: none;
+    font-size: large;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #000;
+    transition: 0.3s ease-in-out;
+}
+
+.link-sidebar.non-active:hover,
+.link-sidebar.active:hover{
+    color: #59b414;
+    background-color: #000;
+}
+
+.link-sidebar.non-active{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    gap: 3px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    text-transform: capitalize;
+}
+
+.link-sidebar.active {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    color: #59b414;
+    padding-left: 5px;
+    gap: 3px;
+    font-weight: 800;
+    transition: all 200ms ease-in-out;
+    text-transform: capitalize;
+}

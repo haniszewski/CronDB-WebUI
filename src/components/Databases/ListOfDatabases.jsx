@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ListOfDatabases = () => {
 

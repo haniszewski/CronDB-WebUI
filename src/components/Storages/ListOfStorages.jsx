@@ -69,6 +69,9 @@ const ListOfStorages = () => {
                     <th>
                         Connection
                     </th>
+                    <th>
+                        
+                    </th>
               </tr>
           </thead>
           <tbody>
@@ -89,6 +92,7 @@ const ListOfStorages = () => {
                               {testConnection(current) ?
                               <td className='table-active'>Connect</td> :
                               <td className='table-unactive'>Disconnect</td> }
+                            <td><button className='table-user-button'>Delete</button></td>
                           </tr>
                       )
                   })

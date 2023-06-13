@@ -1,0 +1,118 @@
+.sidebar-container{
+    background-color: #fff;
+    width: 20%;
+    height: 85vh;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+
+.data-container{
+    width: 80%;
+    background-color: #fff;
+    height: 85vh;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+}
+
+.side-data-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-data {
+    text-align: center;
+  }
+  
+  .table-data h2 {
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .search-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .table-data table {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .table-datatable thead tr{
+    background-color: #000;
+    color: #ffffff;
+  }
+  
+  .table-data table th,
+  .table-data table td {
+    padding: 8px 8px;
+  }
+  
+  .table-data table tbody tr {
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  .table-data table tbody tr:hover {
+    background-color: #f3f3f3;
+  }
+  
+  .table-data table tbody tr:last-of-type {
+    border-bottom: 2px solid #59b414;
+  }
+  
+  .table-unactive{
+    color: red;
+    font-weight: bold;
+  }
+  
+  .table-active{
+    color:#59b414;
+    font-weight: bold;
+  }
+  
+  .table-user-button {
+    appearance: none;
+    background-color: #000000;
+    border: 0.125rem solid #1A1A1A;
+    border-radius: 1rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.2rem;
+    width: 80px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .table-user-button.margin {
+    margin-bottom:22px;
+  }
+  
+  .table-user-button:disabled {
+    pointer-events: none;
+  }
+  
+  .table-user-button:hover {
+    color: #000000;
+    background-color: #59b414;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 0.5rem 1rem;
+  }
+  
+  .table-user-button:active {
+    box-shadow: none;
+    transform: translateY(0.125rem);
+  }
+
+@media screen and (max-width: 59.5rem) {
+    .sidebar-container{
+        width: 30%;
+    }
+  }
