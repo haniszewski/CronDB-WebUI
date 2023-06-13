@@ -1,15 +1,18 @@
-import React from 'react'
-
+import React, { useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { Routes, Route } from 'react-router-dom';
+import ListOfDatabases from '../../components/Databases/ListOfDatabases';
+import AddDatabases from '../../components/Databases/AddDatabase';
 const Databases = () => {
   
-  // const getUsers = async () => {
-  //   const data = await getAllUsers();
-  //   console.log(data);
-  // }
+
 
   return (
     <div>
-      Databases
+        <Routes>
+          <Route path='/' element={<ListOfDatabases/>}/>
+          <Route path='/add' element={<AddDatabases/>}/>
+        </Routes>
     </div>
   )
 }

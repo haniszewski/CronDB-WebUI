@@ -1,6 +1,6 @@
 export const login = async (username, password) => {
     try{
-        const response = await fetch('http://localhost:3000/auth/login', {
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + '/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -14,8 +14,4 @@ export const login = async (username, password) => {
     } catch (err){
         console.log(err);
     }
-}
-
-export const logout = async() => {
-    
 }

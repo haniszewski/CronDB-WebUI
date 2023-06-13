@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { createUser } from '../../services/users/userService';
 
 const CreateUser = () => {
 
@@ -11,26 +12,18 @@ const CreateUser = () => {
     const [message, setMessage] = useState(false);
     const [messageText, setMessageText] = useState('');
     
-    const addUser = () => {
-
-        if(false){
-        validatePassword();
-
-        setMessage(true);
-        setMessageText('New user added successfully!')
-        }
-    }
-
-    const validatePassword = () => {
+    const addUser = async () => {
         if(password === confirmPassword){
-            setMessage(false);
-            setError(false);
+            try {
+                await createUser(login,password, email, phone);
+            } catch (error){
+                console.log('Error creating user:', error);
+            }
         } else {
-            setMessage(true);
-            setError(true);
-            setMessageText('Passwords do not match!')
+            console.log ('Passwords are not the same!')
         }
     }
+
 
     return (
             <div className='form-block'>
@@ -55,11 +48,11 @@ const CreateUser = () => {
 
                     <input className='input-user' type="tel" placeholder='Phone Number' id="phoneNumber" name="phone" onChange={(e) => {setPhone(e.target.value)}} required/>
 
-                    <input
-                        type='submit'
+                    <button
+                        type='button'
                         onClick={addUser}
                         className='button-create'
-                        value='Create'/>
+                    >Create</button>
                 </form>
             </div>
   )

@@ -7,6 +7,9 @@ export const getToken = () => {
 };
 
 export const isAuthenticated = () => {
-    return true;
-    // return getToken() != null;
+    return getToken() != null;
+}
+
+export const logout = () => {
+    localStorage.removeItem('token');
 }

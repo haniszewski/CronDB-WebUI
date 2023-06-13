@@ -7,12 +7,18 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { AiFillEdit } from 'react-icons/ai';
 import { AiOutlineLogout } from 'react-icons/ai';
 import './Navbar.css';
+import { logout } from '../../services/auth/authHelper';
 
 
 const Navbar = () => {
 
     const [clicked, setClicked] = useState(false);
     const [clickedWrap, setClickedWrap] = useState(false);
+
+    const handleLogout = () => {
+        logout();
+        console.log('logout successful')
+    }
 
     const handleClick = () => {
         setClicked(!clicked);
@@ -102,7 +108,7 @@ const Navbar = () => {
                             <p>Admin panel</p>
                             <span>{'>'}</span>
                         </Link>
-                        <Link to="/login" className='navbar-wrap-link' onClick={() => {handleCloseSidebar(); handleCloseWrap()}}>
+                        <Link to="/login" className='navbar-wrap-link' onClick={() => {handleLogout();handleCloseSidebar(); handleCloseWrap()}}>
                             <AiOutlineLogout className='navbar-wrap-icon'/>
                             <p>Logout</p>
                             <span>{'>'}</span>
