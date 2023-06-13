@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const EditUser = () => {
+const EditUser = (user) => {
 
   const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ const EditUser = () => {
 
   return (
     <div className='form-block'>
-      <h2>Edit User:</h2>
+      <h2>Edit {user.username}:</h2>
       <form>
           { message ? (
               <div className={ error ? 'error-container' : 'message-conteiner'}>

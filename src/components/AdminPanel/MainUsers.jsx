@@ -309,19 +309,34 @@ const MainUsers = () => {
     ];
 
     const [edit, setEdit] = useState(false);
+    const [editID, setEditID] = useState(0);
 
     const [search, setSearch] = useState('');
 
     const [currentPage, setCurrentPage] = useState(0);
     const [data, setData] = useState(list);
 
-    const PER_PAGE = 8;
+    const PER_PAGE = 10;
+    const RANGE_PAGE = 2;
+    const MARG_PAGE = 2;
     const offset = currentPage * PER_PAGE;
-    const currentPageData = data.slice(offset, offset + PER_PAGE);
-    const pageCount = Math.ceil(data.length / PER_PAGE);
 
-    const handlePageClick = ({selected: selectedPage}) => {
-        setCurrentPage(selectedPage);
+    const getPageCount = () => {
+        if(search === '') {
+            return Math.ceil(data.length / PER_PAGE);
+        } else {
+            return Math.ceil(data.filter((item) => {
+                return item.username.toLowerCase().includes(search) || item.email.toLowerCase().includes(search);
+            }).length / PER_PAGE);
+        }
+    }
+
+    const handlePageClick = ({selected}) => {
+        setCurrentPage(selected);
+    }
+
+    const deleteUser = (id) => {
+        console.log('deleted: ' + id);
     }
 
     return (
@@ -336,6 +351,7 @@ const MainUsers = () => {
                         onChange={(e) => setSearch(e.target.value.toLowerCase())}
                         />
                 </form>
+                <div className='responsive-table'>
                 <table>
                     <thead>
                         <tr>
@@ -366,11 +382,14 @@ const MainUsers = () => {
                                         <td className={current.isActive ? 'table-active' : 'table-unactive'}>{current.isActive ? 'Active' : 'Non Active'}</td>
                                         <td>
                                             <button
+                                                type=''
                                                 className='table-user-button'
                                                 >Edit
                                             </button>
                                             <button
+                                                type='button'
                                                 className='table-user-button'
+                                                onClick={() => deleteUser(current.id)}
                                                 >Delete
                                             </button>
                                         </td>
@@ -380,19 +399,21 @@ const MainUsers = () => {
                         }
                     </tbody>
                 </table>
+                </div>
                 <ReactPaginate
                     previousLabel={"<"}
                     nextLabel={">"}
-                    breakLabel={".."}
-                    pageCount={pageCount}
-                    pageRangeDisplayed={2}
-                    marginPagesDisplayed={2}
+                    breakLabel={"..."}
+                    pageCount={getPageCount()}
+                    pageRangeDisplayed={RANGE_PAGE}
+                    marginPagesDisplayed={MARG_PAGE}
                     onPageChange={handlePageClick}
                     containerClassName={"pagination"}
                     previousLinkClassName={"pagination-link"}
                     nextLinkClassName={"pagination-link"}
                     pageClassName={"pagination-link"}
-                    disabledClassName={"pagination-link-disasbled"}
+                    breakClassName={"pagination-link-break"}
+                    disabledLinkClassName={"pagination-link-disabled"}
                     activeClassName={"pagination-link-active"}/>
             </div>
         </div>

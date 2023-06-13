@@ -44,7 +44,9 @@ const CreateUser = () => {
                     ): (<div className='about-conteiner'>
                         <p>Here you can add new user!</p>
                     </div>)}
-
+                    
+                    <br/>
+                    
                     <input className='input-user' type="text" placeholder='Username' id="username" name="username" onChange={(e) => {setLogin(e.target.value)}} required/>
 
                     <input className='input-user' type="password" placeholder='Password' id="password" name="password" onChange={(e) => {setPassword(e.target.value)}} required/>
@@ -54,7 +56,7 @@ const CreateUser = () => {
                     <input className='input-user' type="email" placeholder='Email' id="email" name="email" onChange={(e) => {setEmail(e.target.value)}} required/>
 
                     <input className='input-user' type="tel" placeholder='Phone Number' id="phoneNumber" name="phone" onChange={(e) => {setPhone(e.target.value)}} required/>
-                    
+
                     <input
                         type='submit'
                         onClick={addUser}
