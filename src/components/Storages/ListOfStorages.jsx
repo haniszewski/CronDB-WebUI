@@ -100,21 +100,23 @@ const ListOfStorages = () => {
           </tbody>
       </table>
       </div>
-      <ReactPaginate
-          previousLabel={"<"}
-          nextLabel={">"}
-          breakLabel={"..."}
-          pageCount={getPageCount()}
-          pageRangeDisplayed={RANGE_PAGE}
-          marginPagesDisplayed={MARG_PAGE}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          previousLinkClassName={"pagination-link"}
-          nextLinkClassName={"pagination-link"}
-          pageClassName={"pagination-link"}
-          breakClassName={"pagination-link-break"}
-          disabledLinkClassName={"pagination-link-disabled"}
-          activeClassName={"pagination-link-active"}/>
+      { getPageCount() > PER_PAGE ?
+                <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    breakLabel={"..."}
+                    pageCount={getPageCount()}
+                    pageRangeDisplayed={RANGE_PAGE}
+                    marginPagesDisplayed={MARG_PAGE}
+                    onPageChange={handlePageClick}
+                    containerClassName={"pagination"}
+                    previousLinkClassName={"pagination-link"}
+                    nextLinkClassName={"pagination-link"}
+                    pageClassName={"pagination-link"}
+                    breakClassName={"pagination-link-break"}
+                    disabledLinkClassName={"pagination-link-disabled"}
+                    activeClassName={"pagination-link-active"}/>
+                    : null }
   </div>
   )
 }

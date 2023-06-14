@@ -131,6 +131,7 @@ const MainUsers = () => {
                     </tbody>
                 </table>
                 </div>
+                { getPageCount() > PER_PAGE ?
                 <ReactPaginate
                     previousLabel={"<"}
                     nextLabel={">"}
@@ -146,6 +147,7 @@ const MainUsers = () => {
                     breakClassName={"pagination-link-break"}
                     disabledLinkClassName={"pagination-link-disabled"}
                     activeClassName={"pagination-link-active"}/>
+                    : null }
             </div>
         </div>
     )

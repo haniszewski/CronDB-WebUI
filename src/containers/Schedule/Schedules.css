@@ -1,7 +1,9 @@
 .sidebar-container{
     background-color: #fff;
-    width: 20%;
-    height: 85vh;
+    width: auto;
+    min-width:250px;
+    height: auto;
+    min-height: 600px;
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
@@ -11,7 +13,8 @@
 .data-container{
     width: 80%;
     background-color: #fff;
-    height: 85vh;
+    min-height: 600px;
+    height: auto;
     margin: 10px;
     padding: 20px;
     border-radius: 5px;
@@ -23,8 +26,8 @@
     justify-content: space-between;
 }
 
-.table-data {
-    text-align: center;
+  .table-data {
+      text-align: center;
   }
   
   .table-data h2 {
@@ -45,7 +48,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   
-  .table-datatable thead tr{
+  .table-data table thead tr{
     background-color: #000;
     color: #ffffff;
   }
@@ -65,16 +68,6 @@
   
   .table-data table tbody tr:last-of-type {
     border-bottom: 2px solid #59b414;
-  }
-  
-  .table-unactive{
-    color: red;
-    font-weight: bold;
-  }
-  
-  .table-active{
-    color:#59b414;
-    font-weight: bold;
   }
   
   .table-user-button {
@@ -111,8 +104,22 @@
     transform: translateY(0.125rem);
   }
 
-@media screen and (max-width: 59.5rem) {
-    .sidebar-container{
-        width: 30%;
-    }
+  .responsive-table{
+    overflow-x: auto;
   }
+
+@media screen and (max-width: 59.5rem) {
+  .side-data-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .data-container{
+    width: auto;
+    margin: 25px;
+  }
+
+  .sidebar-container{
+    width:auto;
+    margin: 25px;
+  }
+}

@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import ReactPaginate from 'react-paginate';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import '../../containers/Schedule/Schedules.css';
 
 const ListOfSchedules = () => {
-
-  const [edit, setEdit] = useState(false);
-    const [user, setUser] = useState(null);
 
     const [search, setSearch] = useState('');
 
@@ -14,14 +11,19 @@ const ListOfSchedules = () => {
     const databaseId = useParams();
 
     const [currentPage, setCurrentPage] = useState(0);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([{
+        name: 'Basic schedule',
+        cron: '01.01.0101',
+        storage: 'ftpstorage nr1'
+    }]);
 
-    const PER_PAGE = 10;
+    const PER_PAGE = 5;
     const RANGE_PAGE = 2;
     const MARG_PAGE = 2;
     const offset = currentPage * PER_PAGE;
 
     const getPageCount = () => {
+        console.log(data.length, " ", PER_PAGE)
         if(search === '') {
             return Math.ceil(data.length / PER_PAGE);
         } else {
@@ -34,12 +36,8 @@ const ListOfSchedules = () => {
     const handlePageClick = ({selected}) => {
         setCurrentPage(selected);
     }
-
-    const editUser = (current) => {
-            setUser(current);
-    }
     
-    const deleteUser = (id) => {
+    const deleteSchedule = (id) => {
         console.log('deleted: ' + id);
     }
 
@@ -64,13 +62,13 @@ const ListOfSchedules = () => {
                     <thead>
                         <tr>
                             <th>
-                                Username
+                                Name
                             </th>
                             <th>
-                                Email
+                                Cron
                             </th>
                             <th>
-                                Is Active?
+                                Storage
                             </th>
                             <th>
 
@@ -81,24 +79,18 @@ const ListOfSchedules = () => {
                         {
                             data.filter((item) => {
                                 return search.toLowerCase() === '' ? item :
-                                    (item.username.toLowerCase().includes(search) || item.email.toLowerCase().includes(search));
+                                    (item.name.toLowerCase().includes(search) || item.storage.toLowerCase().includes(search));
                             }).slice(offset, offset + PER_PAGE).map((current) => {
                                 return (
                                     <tr key={current.id}>
-                                        <td>{current.login}</td>
-                                        <td>{current.email ? current.email : 'None'}</td>
-                                        <td className={current.accountActive ? 'table-active' : 'table-unactive'}>{current.accountActive ? 'Active' : 'Non Active'}</td>
+                                        <td>{current.name}</td>
+                                        <td>{current.cron}</td>
+                                        <td>{current.storage}</td>
                                         <td>
                                             <button
                                                 type='button'
                                                 className='table-user-button'
-                                                onClick={() => {editUser(current); setEdit(true)}}
-                                                >Edit
-                                            </button>
-                                            <button
-                                                type='button'
-                                                className='table-user-button'
-                                                onClick={() => deleteUser(current.id)}
+                                                onClick={() => deleteSchedule(current.id)}
                                                 >Delete
                                             </button>
                                         </td>
@@ -108,7 +100,7 @@ const ListOfSchedules = () => {
                         }
                     </tbody>
                 </table>
-                </div>
+                </div>{ getPageCount() > PER_PAGE ?
                 <ReactPaginate
                     previousLabel={"<"}
                     nextLabel={">"}
@@ -124,6 +116,7 @@ const ListOfSchedules = () => {
                     breakClassName={"pagination-link-break"}
                     disabledLinkClassName={"pagination-link-disabled"}
                     activeClassName={"pagination-link-active"}/>
+                    : null }
             </div>
   )
 }

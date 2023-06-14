@@ -5,7 +5,7 @@ import './SidebarData.css';
 const data = [
   {
     id : 1,
-    name: 'first_database'
+    name: 'first_databasesadasdasdasdasdasdasdasdasdasd'
   },
   {
     id : 2,
@@ -39,26 +39,54 @@ const data = [
     id : 9,
     name: 'first_database'
   },
-    {
-      id : 10,
-      name: 'first_database'
-    },
-    {
-      id : 11,
-      name: 'first_database'
-    },
-    {
-      id : 12,
-      name: 'first_database'
-    },
-    {
-      id : 13,
-      name: 'first_database'
-    },
-    {
-      id : 14,
-      name: 'first_database'
-    }
+  {
+    id : 10,
+    name: 'first_database'
+  },
+  {
+    id : 11,
+    name: 'first_database'
+  },
+  {
+    id : 12,
+    name: 'first_database'
+  },
+  {
+    id : 13,
+    name: 'first_database'
+  },
+  {
+    id : 14,
+    name: 'first_database'
+  },
+  {
+    id : 15,
+    name: 'first_database'
+  },
+  {
+    id : 16,
+    name: 'first_database'
+  },
+  {
+    id : 17,
+    name: 'first_database'
+  },
+  {
+    id : 18,
+    name: 'first_database'
+  },
+  {
+    id : 19,
+    name: 'first_database'
+  },
+  {
+    id : 20,
+    name: 'first_database'
+  },
+  {
+    id : 21,
+    name: 'first_database'
+  }
 ]
 
 const SidebarData = () => {
@@ -69,6 +97,7 @@ const SidebarData = () => {
     <div className='links-container'>
       <h2>Databases:</h2>
       <hr/>
+      <div className='links-div'>
       {
         data.slice(0, data.length - 1).map((database) => (
           <NavLink
@@ -80,6 +109,7 @@ const SidebarData = () => {
             {database.name}
           </NavLink>
         ))}
+      </div>
     </div>
   )
 }
