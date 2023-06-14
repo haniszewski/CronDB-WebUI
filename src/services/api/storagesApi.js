@@ -1,3 +1,5 @@
+import { getToken } from '../auth/authHelper';
+
 export const getAllStorages = async () => {
     try {
         const response = await fetch(process.env.REACT_APP_SERVER_URL + '/storages/ftp', {

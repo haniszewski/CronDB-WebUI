@@ -1,3 +1,5 @@
+import { getToken } from '../auth/authHelper';
+
 export const getSchedulesById = async (scheduleId) => {
     try {
         const response = await fetch(process.env.REACT_APP_SERVER_URL + `/schedules/database/${id}`, {

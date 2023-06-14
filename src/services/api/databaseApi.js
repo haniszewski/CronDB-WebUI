@@ -1,14 +1,18 @@
-import getToken from '../auth/authHelper/getToken';
+import { getToken } from '../auth/authHelper';
 
 export const getDatabase = async () => { 
-    const response = await fetch('http://localhost:3000/databases', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + getToken()
-        },
-    });
+    try{
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + 'databases/postgres', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getToken()
+            },
+        });
 
-    const data = response.json();
-    return data;
+        const data = response.json();
+        return data;
+    } catch(error){
+        console.log('Error:', error)
+    }
 }

@@ -1,3 +1,5 @@
+import { getToken } from '../auth/authHelper';
+
 export const addSchedule = async(name, cron, numOfCopy, database, storage) => {
     try {
         const response = await fetch(process.env.REACT_APP_SERVER_URL + '/schedules/add', {
