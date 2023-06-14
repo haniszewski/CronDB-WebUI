@@ -2,13 +2,6 @@ import { getToken } from "../auth/authHelper";
 
 export const createUser = async (login, password, email, phoneNumber) => {
     const url = process.env.REACT_APP_SERVER_URL + '/users/add';
-    console.log(JSON.stringify({
-        login: login,
-        password: password,
-        email: email,
-        phoneNumber: phoneNumber,
-        accountActive: true
-    }));
     try {
         const response = await fetch(url, {
             method: 'POST',
