@@ -54,7 +54,7 @@ export const addStorage = async (host, port, login, pass, passive) => {
       }
 }
 
-export const deleteStorage = async (storageId) => {
+export const deleteStorage = async (id) => {
     try {
         const response = await fetch(process.env.REACT_APP_SERVER_URL + `/storages/ftp/${id}`, {
           method: 'DELETE',

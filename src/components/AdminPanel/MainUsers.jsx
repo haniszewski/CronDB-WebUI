@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import CreateUser from './CreateUser';
 import EditUser from './EditUser';
 import {getAllUsers} from '../../services/api/userApi'
+import { deleteUser } from '../../services/users/userService';
 
 const MainUsers = () => {
 
@@ -56,8 +57,13 @@ const MainUsers = () => {
             setUser(current);
     }
     
-    const deleteUser = (id) => {
-        console.log('deleted: ' + id);
+    const deleteHandleUser = async (id) => {
+        try{
+            const isOk = await deleteUser(id);
+            window.location.reload();
+        }catch(error){
+            console.log(error)
+        }
     }
 
     return (
@@ -109,7 +115,7 @@ const MainUsers = () => {
                                     <tr key={current.id}>
                                         <td>{current.login}</td>
                                         <td>{current.email ? current.email : 'None'}</td>
-                                        <td className={current.accountActive ? 'table-active' : 'table-unactive'}>{current.accountActive ? 'Active' : 'Non Active'}</td>
+                                        <td className={current.accountActive == 1 ? 'table-active' : 'table-unactive'}>{current.accountActive == 1 ? 'Active' : 'Non Active'}</td>
                                         <td>
                                             <button
                                                 type='button'
@@ -120,7 +126,7 @@ const MainUsers = () => {
                                             <button
                                                 type='button'
                                                 className='table-user-button'
-                                                onClick={() => deleteUser(current.id)}
+                                                onClick={() => deleteHandleUser(current.id)}
                                                 >Delete
                                             </button>
                                         </td>

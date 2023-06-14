@@ -15,7 +15,8 @@ const CreateUser = () => {
     const addUser = async () => {
         if(password === confirmPassword){
             try {
-                await createUser(login,password, email, phone);
+                await createUser(login, password, email, phone);
+                window.location.reload();
             } catch (error){
                 console.log('Error creating user:', error);
             }
@@ -51,6 +52,7 @@ const CreateUser = () => {
                     <button
                         type='button'
                         onClick={addUser}
+
                         className='button-create'
                     >Create</button>
                 </form>

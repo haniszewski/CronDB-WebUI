@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate';
 import { useNavigate } from 'react-router-dom';
+import {getAllStorages} from '../../services/api/storagesApi';
 
 const ListOfStorages = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [search, setSearch] = useState('');
-  
+    
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await getAllStorages();
+    //             console.log(response);
+    //             setData(response);
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, []);
+
     const navigate = useNavigate();
 
     const PER_PAGE = 10;

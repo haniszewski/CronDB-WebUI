@@ -13,6 +13,7 @@ export const getAllStorages = async () => {
           const storages = await response.json();
           return storages;
         } else {
+          console.log(response);
           console.log('Failed to retrieve storages');
         }
       } catch (error) {

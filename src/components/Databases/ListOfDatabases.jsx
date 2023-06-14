@@ -1,13 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate';
 import { useNavigate, useParams } from 'react-router-dom';
+import {getDatabases} from '../../services/api/databaseApi';
+import { testConnectionToDatabase } from '../../services/databases/databasesService';
+
 
 const ListOfDatabases = () => {
 
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [search, setSearch] = useState('');
-  
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getDatabases();
+                console.log(response);
+                setData(response);
+            } catch (error) {
+                console.log(error)
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const testDatabase = async ({database}) => {
+        const isOk = await testConnectionToDatabase(database.dbHost, database.dbPort, database.dbLogin, database.dbPass, database.dbName, database.version);
+        return isOk ? true : false;
+    }
+
     const navigate = useNavigate();
 
     const PER_PAGE = 10;
@@ -29,9 +51,6 @@ const ListOfDatabases = () => {
         setCurrentPage(selected);
     }
 
-    const testConnection = ({database}) => {
-        return true;
-    }
   return (
     <div className='table-container'>
       <h2>Databases PostgresQL:</h2>    
@@ -73,7 +92,7 @@ const ListOfDatabases = () => {
               </tr>
           </thead>
           <tbody>
-              {
+              { data.length != 0 ? (
                   data.filter((item) => {
                       return search.toLowerCase() === '' ? item :
                           (item.dbPort.toLowerCase().includes(search)
@@ -86,7 +105,7 @@ const ListOfDatabases = () => {
                               <td>{current.dbPort}</td>
                               <td>{current.dbName}</td>
                               <td>{current.dialect}</td>
-                              <td className={testConnection(current) ? 'table-active' : 'table-unactive'}>{testConnection() ? 'Connect' : 'Diconnect'}</td>
+                              <td className={testDatabase(current) ? 'table-active' : 'table-unactive'}>{testDatabase(current) ? 'Connect' : 'Diconnect'}</td>
                               <td>
                                   <button
                                       type='button'
@@ -98,7 +117,7 @@ const ListOfDatabases = () => {
                           </tr>
                       )
                   })
-              }
+              ) : null}
           </tbody>
       </table>
       </div>

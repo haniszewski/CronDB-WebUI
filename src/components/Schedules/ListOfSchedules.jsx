@@ -1,11 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactPaginate from 'react-paginate';
 import { useNavigate, useParams } from 'react-router-dom';
+import {getSchedulesById} from '../../services/api/schedulesApi';
 import '../../containers/Schedule/Schedules.css';
 
 const ListOfSchedules = () => {
 
     const [search, setSearch] = useState('');
+
+    //  useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await getSchedulesById(databaseId.id);
+    //             console.log(response);
+    //             setData(response);
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, []);
 
     const navigate = useNavigate();
     const databaseId = useParams();

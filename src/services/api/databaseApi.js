@@ -1,8 +1,8 @@
 import { getToken } from '../auth/authHelper';
 
-export const getDatabase = async () => { 
+export const getDatabases = async () => { 
     try{
-        const response = await fetch(process.env.REACT_APP_SERVER_URL + 'databases/postgres', {
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + '/databases/postgres', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

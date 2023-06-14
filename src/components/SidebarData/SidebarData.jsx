@@ -1,97 +1,65 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 import './SidebarData.css';
-
-const data = [
-  {
-    id : 1,
-    name: 'first_databasesadasdasdasdasdasdasdasdasdasd'
-  },
-  {
-    id : 2,
-    name: 'first_database'
-  },
-  {
-    id : 3,
-    name: 'first_database'
-  },
-  {
-    id : 4,
-    name: 'first_database'
-  },
-  {
-    id : 5,
-    name: 'first_database'
-  },
-  {
-    id : 6,
-    name: 'first_database'
-  },
-  {
-    id : 7,
-    name: 'first_database'
-  },
-  {
-    id : 8,
-    name: 'first_database'
-  },
-  {
-    id : 9,
-    name: 'first_database'
-  },
-  {
-    id : 10,
-    name: 'first_database'
-  },
-  {
-    id : 11,
-    name: 'first_database'
-  },
-  {
-    id : 12,
-    name: 'first_database'
-  },
-  {
-    id : 13,
-    name: 'first_database'
-  },
-  {
-    id : 14,
-    name: 'first_database'
-  },
-  {
-    id : 15,
-    name: 'first_database'
-  },
-  {
-    id : 16,
-    name: 'first_database'
-  },
-  {
-    id : 17,
-    name: 'first_database'
-  },
-  {
-    id : 18,
-    name: 'first_database'
-  },
-  {
-    id : 19,
-    name: 'first_database'
-  },
-  {
-    id : 20,
-    name: 'first_database'
-  },
-  {
-    id : 21,
-    name: 'first_database'
-  }
-]
+// import {getDatabases} from '../../services/api/databaseApi';
 
 const SidebarData = () => {
 
+  const data = [
+    {
+      id: 1,
+      name: 'first_database'
+    },
+    {
+      id: 2,
+      name: 'second_database'
+    },
+    {
+      id: 3,
+      name: 'third_database'
+    },
+    {
+      id: 4,
+      name: 'fourth_database'
+    },
+    {
+      id: 5,
+      name: 'fifth_database'
+    },
+    {
+      id: 6,
+      name: 'sixth_database'
+    },
+    {
+      id: 7,
+      name: 'seventh_database'
+    },
+    {
+      id: 8,
+      name: 'eight_database'
+    },
+    {
+      id: 9,
+      name: 'nineth_database'
+    },
+  ];
 
+  const [schedules, setSchedules] = useState([]);
+  
+  
+  // useEffect(() => {
+  //     const fetchData = async () => {
+  //         try {
+  //             const response = await getDatabases();
+  //             console.log(response);
+  //             setSchedules(response);
+  //         } catch (error) {
+  //             console.log(error)
+  //         }
+  //     };
+
+  //     fetchData();
+  // }, []);
 
   return (
     <div className='links-container'>

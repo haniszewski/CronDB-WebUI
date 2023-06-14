@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import { updateUser } from '../../services/users/userService';
 const EditUser = ({user}) => {
 
     
@@ -8,28 +8,22 @@ const EditUser = ({user}) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [phone, setPhone] = useState('');
+  const [active, setActive] = useState('');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState(false);
   const [messageText, setMessageText] = useState('');
     
-    const editUser = () => {
+    const editUser = async (id, login, password, email, phone, accountActive) => {
 
-        if(false){
-        validatePassword();
-
-        setMessage(true);
-        setMessageText('New user added successfully!')
-        }
-    }
-
-    const validatePassword = () => {
         if(password === confirmPassword){
-            setMessage(false);
-            setError(false);
+            try {
+                await updateUser(id, login, password, email, phone, accountActive);
+                window.location.reload();
+            } catch (error){
+                console.log('Error creating user:', error);
+            }
         } else {
-            setMessage(true);
-            setError(true);
-            setMessageText('Passwords do not match!')
+            console.log ('Passwords are not the same!')
         }
     }
 
@@ -53,16 +47,16 @@ const EditUser = ({user}) => {
 
           <input className='input-user' value={user.email} type="email" placeholder='New Email' id="email" name="email" onChange={(e) => {setEmail(e.target.value)}} required/>
           
-          <select className='input-user'>
-            <option value={1}>Active</option>
-            <option value={0}>Non Active</option>
+          <select onChange={(e) => setActive(e.target.value)} className='input-user'>
+            <option value={true}>Active</option>
+            <option value={false}>Non Active</option>
           </select>
 
           <input className='input-user' type="tel" placeholder='New Phone Number' id="phoneNumber" name="phone" onChange={(e) => {setPhone(e.target.value)}} required/>
           
           <input
-              type='submit'
-              onClick={editUser}
+              type='button'
+              onClick={() => editUser(user.id, login, password, email, phone, active)}
               className='button-create'
               value='Update User'/>
       </form>
